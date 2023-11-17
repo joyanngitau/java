@@ -1,15 +1,20 @@
-import java.util.Scanner;
+import java.util.*;
 
 class Program{
     public static void main(String[] args){
+        int age;
+        String name;
+
         Scanner customer = new Scanner(System.in);
         System.out.println("Enter customer name and age:");
 
-        String name = customer.nextLine();
-        int age = customer.nextInt();
-        
-        System.out.println("Name: " + name);
-    System.out.println("Age: " + age);
+        try{
+            name = customer.nextLine();
+            age = customer.nextInt();
+        } catch (InputMismatchException ex){
+            System.out.println("Enter a number!");
+            age = customer.nextInt();
+        }
 
         Customer jane = new Customer();
 
@@ -21,6 +26,7 @@ class Program{
 
         System.out.println("name: " +cusname);
         System.out.println(" age: " +cusage);
+        
     }
 }
 
@@ -28,6 +34,7 @@ class Customer{
     String cname;
     int cage;
 
+    //constructor
     public Customer(){
         System.out.println("initialized");
     }
